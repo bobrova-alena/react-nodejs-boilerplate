@@ -2,7 +2,7 @@
   "name": "react-nodejs-boilerplate",
   "version": "0.1.0",
   "main": "src/index.tsx",
-  "description": "react nodejs biolerplate",
+  "description": "react nodejs boilerplate",
   "author": "Bobrova Alena",
   "license": "MIT",
   "dependencies": {
