@@ -1,5 +1,5 @@
 const getPathInternal = pattern => ({ pattern, group: 'internal' });
-const resolveApp = require('./utils').resolveApp;
+const resolveRelativeAppRoot = require('./utils/resolvePath').resolveRelativeAppRoot;
 
 const importOrder = {
   pathGroups: [getPathInternal('~**'), getPathInternal('~**/**')],
@@ -13,13 +13,13 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
-      project: resolveApp('./tsconfig.json'),
+      project: resolveRelativeAppRoot('./tsconfig.json'),
       ecmaFeatures: {
         jsx: true,
       },
       warnOnUnsupportedTypeScriptVersion: true,
   },
-  ignorePatterns: [resolveApp('./dist'), resolveApp('./webpack/*.js'), resolveApp('.eslintrc.js')],
+  ignorePatterns: [resolveRelativeAppRoot('./dist'), resolveRelativeAppRoot('./webpack/*.js'), resolveRelativeAppRoot('.eslintrc.js')],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'prettier',
