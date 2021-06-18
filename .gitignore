@@ -2,3 +2,4 @@ node_modules
 app/dist/
 server/dist/serverApp.js
 server/dist/vendor-node_modules_express_index_js.js
+src/server/dist/
