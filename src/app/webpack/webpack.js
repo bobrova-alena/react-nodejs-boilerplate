@@ -2,6 +2,7 @@ const path = require('path');
 const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const baseConfig = require('../../../baseConfig/webpack');
 const appPath = require('./path');
 
