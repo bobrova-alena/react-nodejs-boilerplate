@@ -1,18 +1,31 @@
-import { ICountResponse } from '../models';
+import { NumberRequest, INumberResponse } from '../models';
 
 import { all, takeEvery, put } from '@redux-saga/core/effects';
 import * as api from './api';
-import { getCount, setCount } from './slice';
+import { GET_NUMBER, POST_NUMBER, setNumber } from './slice';
+import { PayloadAction } from '@reduxjs/toolkit';
 
-function* GetDataCount() {
+function* GetNumericData() {
   try {
-    const response = (yield api.fetchCount()) as ICountResponse;
-    yield put(setCount(response));
+    const response = (yield api.getNumber()) as INumberResponse;
+    yield put(setNumber(response));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* PostNumericData(action: PayloadAction<NumberRequest>) {
+  try {
+    yield api.postNumber(action.payload);
+    yield put(setNumber(action.payload));
   } catch (e) {
     console.log(e);
   }
 }
 
 export default function* rootCounterSaga(): unknown {
-  yield all([takeEvery(getCount.toString(), GetDataCount)]);
+  yield all([
+    yield takeEvery(GET_NUMBER.toString(), GetNumericData),
+    yield takeEvery(POST_NUMBER.toString(), PostNumericData),
+  ]);
 }

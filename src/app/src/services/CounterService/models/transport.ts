@@ -1,7 +1,7 @@
-export interface ICountResponse {
-  count: number;
+export class NumberRequest {
+  constructor(public number: number) {}
 }
 
-export class CountRequest {
-  constructor(public count: number) {}
+export interface INumberResponse {
+  number: number;
 }

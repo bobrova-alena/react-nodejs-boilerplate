@@ -1,22 +1,25 @@
 import { Reducer, combineReducers } from '@reduxjs/toolkit';
 import { connectRouter, RouterState } from 'connected-react-router';
 import { createBrowserHistory, History } from 'history';
-import { createStore } from 'redux';
-import { counterReducer, CounterState } from 'src/services';
+import { applyMiddleware, createStore } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { numberReducer, NumberState } from 'src/services';
+import rootSaga from './sagas';
 
 export interface IApplicationState {
   router: RouterState;
-  counter: CounterState;
+  numericData: NumberState;
 }
 
 export const createRootReducer = (history: History): Reducer<IApplicationState> =>
   combineReducers<IApplicationState>({
     router: connectRouter(history),
-    counter: counterReducer,
+    numericData: numberReducer,
   });
 
 export const history = createBrowserHistory();
+const sagaMiddleware = createSagaMiddleware();
+export const store = createStore(createRootReducer(history), applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 
-export const store = createStore(createRootReducer(history));
-
-export const selectCount = (state: IApplicationState): number => state.counter.count;
+export const selectNumber = (state: IApplicationState): number => state.numericData.number;

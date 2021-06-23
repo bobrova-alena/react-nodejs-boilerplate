@@ -1,30 +1,32 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ICountResponse } from '../models';
+import { NumberRequest, INumberResponse } from '../models';
 
-export type CounterState = {
-  count: number;
+export type NumberState = {
+  number: number;
 };
 
-const counterAdapter = createEntityAdapter<CounterState>();
+const numberAdapter = createEntityAdapter<NumberState>();
 
-const initialState = counterAdapter.getInitialState({
-  count: 0,
+const initialState = numberAdapter.getInitialState({
+  number: 0,
 });
 
-const counterSlice = createSlice({
+const numberSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    setCount(state: CounterState, action: PayloadAction<ICountResponse>) {
-      state.count = action.payload.count;
+    setNumber(state: NumberState, action: PayloadAction<INumberResponse>) {
+      state.number = action.payload.number;
     },
 
     //sagas
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    getCount() {},
+    GET_NUMBER(_state: NumberState): void {},
+    POST_NUMBER(_state: NumberState, _action: PayloadAction<NumberRequest>): void {},
   },
 });
 
-export const { getCount, setCount } = counterSlice.actions;
+export const numberReducer = numberSlice.reducer;
 
-export const counterReducer = counterSlice.reducer;
+export const { GET_NUMBER, setNumber, POST_NUMBER } = numberSlice.actions;

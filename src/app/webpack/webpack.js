@@ -40,6 +40,12 @@ module.exports = {
     historyApiFallback: {
       index: `/${platform}.html`,
     },
+    proxy: { 
+      "/api/**": { 
+        target: 'http://localhost:3080', 
+        secure: false
+      }
+    }
   },
   optimization: {
     ...baseConfig.optimization,
