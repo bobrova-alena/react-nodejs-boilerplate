@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NumericService, NumberRequest, GET_NUMBER, POST_NUMBER } from 'src/services';
-import { selectNumber } from '../../store';
+import { NumericService, NumberRequest } from 'src/services';
+import { selectNumber } from '../../state';
 import { RandomNumber } from 'src/components';
+import { GET_NUMBER, POST_NUMBER } from 'src/ducks';
 
 export default function HomePage(): JSX.Element {
   const dispatch = useDispatch();

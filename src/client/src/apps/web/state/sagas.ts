@@ -1,5 +1,5 @@
 import { all } from '@redux-saga/core/effects';
-import { counterSagas } from 'src/services';
+import { counterSagas } from 'src/ducks';
 
 function SETUP() {
   //FOR INITIAL LOADING

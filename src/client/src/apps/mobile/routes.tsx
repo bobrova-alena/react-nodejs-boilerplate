@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ErrorBoundary } from 'src/components';
 
-import { history } from './store';
+import { history } from './state';
 
 const Home = React.lazy(() => import('./pages/home'));
 

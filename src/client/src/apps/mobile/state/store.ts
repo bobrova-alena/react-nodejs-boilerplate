@@ -3,7 +3,7 @@ import { connectRouter, RouterState } from 'connected-react-router';
 import { createBrowserHistory, History } from 'history';
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { numberReducer, NumberState } from 'src/services';
+import { numberReducer, NumberState } from 'src/ducks';
 import rootSaga from './sagas';
 
 export interface IApplicationState {

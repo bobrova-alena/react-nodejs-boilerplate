@@ -1,4 +1,4 @@
-import { NumberRequest, INumberResponse } from '../models';
+import { NumberRequest, INumberResponse } from 'src/services';
 
 export const getNumber = (): Promise<INumberResponse | void> => {
   return fetch('api/data')
