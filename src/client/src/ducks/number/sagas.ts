@@ -1,4 +1,4 @@
-import { NumberRequest, INumberResponse } from 'src/services';
+import { NumberRequest, INumberResponse } from './transport';
 
 import { all, takeEvery, put } from '@redux-saga/core/effects';
 import * as api from './api';

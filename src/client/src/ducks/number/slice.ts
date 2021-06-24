@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { NumberRequest, INumberResponse } from 'src/services';
+import { NumberRequest, INumberResponse } from './transport';
 
 export type NumberState = {
   number: number;

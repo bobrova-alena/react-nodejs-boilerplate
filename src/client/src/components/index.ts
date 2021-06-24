@@ -1,2 +1,2 @@
 export { ErrorBoundary } from './ErrorBoundary';
-export { RandomNumber } from './RandomNumber';
+export { NumericPanel } from './NumericPanel';

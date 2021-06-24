@@ -1,4 +1,4 @@
-import { NumberRequest, INumberResponse } from 'src/services';
+import { NumberRequest, INumberResponse } from './transport';
 
 export const getNumber = (): Promise<INumberResponse | void> => {
   return fetch('api/data')
