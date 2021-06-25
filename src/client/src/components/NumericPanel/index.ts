@@ -1,1 +1,1 @@
-export * from './RandomNumber';
+export * from './NumericPanel';
