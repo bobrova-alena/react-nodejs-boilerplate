@@ -6,13 +6,16 @@
   "author": "Bobrova Alena",
   "license": "MIT",
   "dependencies": {
+    "@styled-system/css": "^5.1.5",
     "connected-react-router": "^6.9.1",
     "history": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
-    "redux-saga": "^1.1.3"
+    "redux-saga": "^1.1.3",
+    "styled-components": "^5.3.0",
+    "styled-system": "^5.1.5"
   },
   "scripts": {
     "start:web": "cross-env PLATFORM_ENV=web PORT_ENV=8080 APP_NAME=web MODE_ENV=development webpack serve --progress --color --mode development --config ./webpack/webpack.js",
@@ -55,6 +58,8 @@
     "@types/react-redux": "^7.1.16",
     "@types/react-router": "^5.1.15",
     "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.10",
+    "@types/styled-system": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "cross-env": "^7.0.3",
