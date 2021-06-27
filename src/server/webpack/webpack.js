@@ -1,5 +1,6 @@
 const appPath = require('./path');
-const baseConfig = require('../../../baseConfig/webpack')
+const baseConfig = require('../../../baseConfig/webpack');
+const NodemonPlugin = require('nodemon-webpack-plugin');
 
 const isDebugMode = process.env.DEBUG_ENV;
 
@@ -24,7 +25,12 @@ const config = {
         ],
       }
     ]
-  }
+  },
+  plugins: baseConfig.plugins.concat([
+    new NodemonPlugin({
+      watch: appPath.dist
+    })
+  ])
 };
 
 if(isDebugMode) {

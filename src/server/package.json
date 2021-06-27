@@ -2,10 +2,8 @@
   "extends": "../../package.json",
   "main": "server.js",
   "scripts": {
-    "watch": "nodemon ./dist/serverApp.js localhost 3080",
-    "build:dev": "cross-env MODE_ENV=development webpack --progress --color --mode development --config ./webpack/webpack.js",
+    "start": "cross-env MODE_ENV=development webpack --progress --color --mode development --watch --config ./webpack/webpack.js",
     "----------": "",
-    "start": "node ./dist/serverApp.js",
     "build:prod": "cross-env webpack --color --mode production --config ./webpack/webpack.js",
     "debug:build:dev": "cross-env MODE_ENV=development DEBUG_ENV=debug webpack --progress --color --mode development --config ./webpack/webpack.js",
     "eslint": "eslint --fix"
@@ -28,7 +26,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
-    "nodemon": "^2.0.4",
+    "nodemon-webpack-plugin": "^4.5.2",
     "ts-loader": "^9.2.3",
     "webpack": "^5.24.4",
     "webpack-cli": "^4.7.2",
