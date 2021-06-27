@@ -37,7 +37,7 @@ module.exports = {
     }),
     devMode && new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/,
-      failOnError: true,
+      failOnError: false,
     })
   ].filter(Boolean)
 };
