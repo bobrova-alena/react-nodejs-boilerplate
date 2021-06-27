@@ -18,7 +18,7 @@ const numberSlice = createSlice({
   initialState,
   reducers: {
     setNumber(state: NumberState, action: PayloadAction<INumberResponse>) {
-      state.number = action.payload.number;
+      state.number = action.payload?.number;
     },
 
     //sagas

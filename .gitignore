@@ -4,3 +4,4 @@ server/dist/serverApp.js
 server/dist/vendor-node_modules_express_index_js.js
 src/server/dist/
 src/app/dist/
+src/server/.env
