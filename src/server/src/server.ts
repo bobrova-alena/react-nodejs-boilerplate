@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import express, { Request, Response } from 'express';
 
-import { replaceNumber, readNumber } from './dbApi';
+import { replaceNumber, readNumber, IDocument } from './dbApi';
 
 const app = express();
 const port = 3080;
@@ -10,8 +10,7 @@ app.use(bodyParser.json());
 
 app.get('/api/data', (_req: Request, res: Response) => {
   readNumber()
-    .then((data: any) => {
-      console.log('!!!number ' + data?.number);
+    .then((data: IDocument) => {
       res.json(
         JSON.stringify({
           number: data?.number,
@@ -22,8 +21,8 @@ app.get('/api/data', (_req: Request, res: Response) => {
 });
 
 app.post('/api/data', (req: Request, res: Response) => {
-  const value = <number>req.body.number;
-  replaceNumber(value)
+  const number = <number>req.body.number;
+  replaceNumber(number)
     .then(() => {
       res.json('Number setted');
     })
